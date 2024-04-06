@@ -1,0 +1,81 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "Data API Builder",
+  "steps": [
+    {
+      "file": "data-api-builder/dab-config.json",
+      "description": "Here you can see the link to the JSON schema, making it easy for us to edit the file with intellisense!",
+      "line": 2
+    },
+    {
+      "file": "data-api-builder/dab-config.json",
+      "selection": {
+        "start": {
+          "line": 3,
+          "character": 1
+        },
+        "end": {
+          "line": 9,
+          "character": 5
+        }
+      },
+      "description": "Here you can see we are connecting to a SQL Server database, defined in an environment variable or .env file.\r\n\r\nThere's also a `data-source-files` property available so you can tell DAB to connect to multiple data sources and data source types at ones!\r\nThis will not be a part of this demo."
+    },
+    {
+      "file": "data-api-builder/dab-config.json",
+      "selection": {
+        "start": {
+          "line": 11,
+          "character": 1
+        },
+        "end": {
+          "line": 14,
+          "character": 7
+        }
+      },
+      "description": "Here we can configure the global caching options which can improve performance during heavy load and much more."
+    },
+    {
+      "file": "data-api-builder/dab-config.json",
+      "selection": {
+        "start": {
+          "line": 15,
+          "character": 1
+        },
+        "end": {
+          "line": 24,
+          "character": 7
+        }
+      },
+      "description": "Global Rest/GraphQL options, allowing us to enable/disable them and change the paths they should run on"
+    },
+    {
+      "file": "data-api-builder/dab-config.json",
+      "selection": {
+        "start": {
+          "line": 25,
+          "character": 1
+        },
+        "end": {
+          "line": 31,
+          "character": 6
+        }
+      },
+      "description": "Host options are up next, where we can change to development/production mode, change CORS settings, set up authentication, telemetry and more.\r\nNote that I put the `mode` in an environment variable, making it easy to change this during deployment.\r\n\r\n"
+    },
+    {
+      "file": "data-api-builder/dab-config.json",
+      "selection": {
+        "start": {
+          "line": 34,
+          "character": 5
+        },
+        "end": {
+          "line": 51,
+          "character": 7
+        }
+      },
+      "description": ""
+    }
+  ]
+}

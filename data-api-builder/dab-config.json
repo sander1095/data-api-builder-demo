@@ -27,9 +27,6 @@
       "cors": {
         "origins": ["*"],
         "allow-credentials": false
-      },
-      "authentication": {
-        "provider": "StaticWebApps"
       }
     }
   },
