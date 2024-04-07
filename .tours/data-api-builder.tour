@@ -75,7 +75,77 @@
           "character": 7
         }
       },
-      "description": ""
+      "description": "Here's the first Entity: `Series`.\r\nIts `api/series` endpoint is mapped to `dbo.Series`. \r\n\r\nFor demo purposes, all CRUD actions on this entity have anonymous auth.\r\n\r\nFinally, a `Series` entity has a `many` relationship to books\r\n\r\n---------------------\r\n\r\n**Note**: You can set all of this up using the configuration file or the CLI. For example:\r\n\r\n`dab update Series --relationship books --target.entity Book --cardinality many`"
+    },
+    {
+      "file": "data-api-builder/dab-config.json",
+      "selection": {
+        "start": {
+          "line": 70,
+          "character": 29
+        },
+        "end": {
+          "line": 70,
+          "character": 39
+        }
+      },
+      "description": "This is the `Book` entity, which is mapped to `/api/books` and `dbo.books`. \r\nIt has a relationship to `series` where a book can belong to 1 series.\r\n\r\nIt has another relationship to `authors`, where a book can have many authors. An author can have many books, which means that we have a `many-to-many` relationship with a `BookAuthor` entity in between. \r\n\r\nWe connect `Book` to `Author` by telling it to map the `id` column of `Book` to `book_id` of `BookAuthor`"
+    },
+    {
+      "file": "data-api-builder/dab-config.json",
+      "selection": {
+        "start": {
+          "line": 76,
+          "character": 5
+        },
+        "end": {
+          "line": 95,
+          "character": 7
+        }
+      },
+      "description": "The `Author` entity is similar to `Book`. It's mapped to `dbo.authors` and is accessible on `api/authors`. This is the other side of the `book -> authors` relationships, so you can see it has a relationship to `Book` using the `BookAuthor` entity and the `author_id` column."
+    },
+    {
+      "file": "data-api-builder/dab-config.json",
+      "selection": {
+        "start": {
+          "line": 96,
+          "character": 5
+        },
+        "end": {
+          "line": 122,
+          "character": 7
+        }
+      },
+      "description": "The final table entity that I'll showcase is `BookAuthor`. This is that linking table between `Book` and `Author`.\r\nYou can see its relationships and how it links the 2 entities together. Finally, you will notice the link to another entity called `AuthorType`, which notes if the author was the `Main author`, `Contributor` or `Co-Author`."
+    },
+    {
+      "file": "data-api-builder/dab-config.json",
+      "selection": {
+        "start": {
+          "line": 135,
+          "character": 5
+        },
+        "end": {
+          "line": 153,
+          "character": 7
+        }
+      },
+      "description": "You can also map a view to an entity and expose it with DAB. Here we have a view that gets the amount of books written by an author, which is the input for this view.\r\n\r\nIt's mapped to the `dbo.vw_book_count_by_author` view, and the `key-fields` is `author-id`, meaning that our argument is mapped to this property.\r\n\r\nThe `permissions.actions` are different here. Because this view is read-only, we only allow `read` access.\r\n\r\nAnother example of DAB configuration is the `mappings` field. The view contains a `books` property that we want to expose as `book_count` in our REST/GraphQL API."
+    },
+    {
+      "file": "data-api-builder/dab-config.json",
+      "selection": {
+        "start": {
+          "line": 154,
+          "character": 1
+        },
+        "end": {
+          "line": 175,
+          "character": 6
+        }
+      },
+      "description": "Finally, I want to showcase a stored procedure.\r\n\r\nWe can also expose this as a DAB entity. We only expose it as a GraphQL Query or REST GET operation; state modification is not possible.\r\n\r\nThere are 2 parameters, where `searchType` has a default value of `c`. This is then used in the stored procedure as a parameter."
     }
   ]
 }

@@ -164,7 +164,7 @@
         "operation": "query"
       },
       "rest": {
-        "methods": ["post"]
+        "methods": ["get"]
       },
       "permissions": [
         {

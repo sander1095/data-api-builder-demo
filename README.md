@@ -14,7 +14,9 @@
 3. Import the `.bacpac` using SQL Server Management Studio (or another tool).
 4. Run `dotnet tool restore` to install the DAB CLI
 5. Run `dab start` in `data-api-builder` to start the API.
-6. Open `http://localhost:5000/swagger` to see the API documentation.
-7. Open `http://localhost:5000/api/openapi` to see OpenAPI definition.
-8. Open `http://localhost:5000/graphql` to see the GraphQL playground.
-   
+
+
+### Links
+1. Open `http://localhost:5000/swagger` to see the API documentation.
+2. Open `http://localhost:5000/api/openapi` to see OpenAPI definition.
+3. Open `http://localhost:5000/graphql` to see the GraphQL playground.
