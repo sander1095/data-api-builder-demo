@@ -57,3 +57,31 @@
 1. Open `http://localhost:5000/swagger` to see the API documentation.
 2. Open `http://localhost:5000/api/openapi` to see OpenAPI definition.
 3. Open `http://localhost:5000/graphql` to see the GraphQL playground.
+
+## static-web-app
+
+### Setup
+1. Set up an `.env` file in `static-web-app/swa-db-connections`:
+
+    ```
+    DATABASE_CONNECTION_STRING="Server=tcp:sql-data-api-builder-demo.database.windows.net,1433;Initial Catalog=db-data-api-builder-demo;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;Authentication='Active Directory Interactive'"
+    ```
+2. Run `npm i && npx swa start http://localhost:3000 --run "cd library-demo && npm i && npm start" --data-api-location swa-db-connections` in `static-web-app`.
+
+### Demo content
+1. Open the localhost version of the app and talk about it being a simple UI for another library app, built with React and running with the SWA cli.
+2. There's a github action that will push changes to the live version of the app.
+3. Showcase the CLI command and the `--data-api-location` flag.
+4. Showcase the `swa-db-connections` folder and the config file.
+5. Show that logged out users can read and things like delete will result in 403.
+6. Showcase that this is all done using data-api-builder under the hood. There is no API to be found in this project!
+7. When logging in, we can use the Azure Static Web App emulator's authentication to log in, making local development easier.
+8. Log in with an admin role.
+9. Now we can do things like deleting a book.
+10. Open the live version and showcase thats its running the project in the app, again, with data api builder!
+11. Now showcase the azure portal and the database connection setup.
+
+### Links
+1. Open `http://localhost:4280` for the localhost version of the app
+2. Open `https://witty-smoke-062083f03.5.azurestaticapps.net/` for the live version of the app.
+3. Open `https://portal.azure.com/#@Sandertenbrinkexs4all.onmicrosoft.com/resource/subscriptions/65cbea20-04e6-49ae-869f-bcd6fb4d318f/resourceGroups/rg-data-api-builder-demo/providers/Microsoft.Web/staticSites/swa-data-api-builder-demo/databaseConnection` for the Static Web App resource.
