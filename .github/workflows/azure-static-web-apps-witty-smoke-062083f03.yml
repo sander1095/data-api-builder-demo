@@ -30,6 +30,7 @@ jobs:
           # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
           app_location: "/static-web-app/library-demo" # App source code path
           api_location: "" # Api source code path - optional
+          data_api_location: "/static-web-app/swa-db-connections" # Data source code path - optional
           output_location: "build" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
 
