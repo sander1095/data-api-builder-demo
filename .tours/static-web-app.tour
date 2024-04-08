@@ -1,0 +1,62 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "Static Web App",
+  "steps": [
+    {
+      "file": ".github/workflows/azure-static-web-apps-witty-smoke-062083f03.yml",
+      "selection": {
+        "start": {
+          "line": 22,
+          "character": 1
+        },
+        "end": {
+          "line": 35,
+          "character": 63
+        }
+      },
+      "description": "This github action will build and deploy the application every time I push to main.\r\nIt will also create a temporary environment when a PR is created, which is useful for testing:\r\n\r\nPR Link: https://github.com/sander1095/data-api-builder-demo/pull/1  \r\nPR environment: https://witty-smoke-062083f03-1.westeurope.5.azurestaticapps.net/ (not set up with DAB)\r\n"
+    },
+    {
+      "file": "static-web-app/README.md",
+      "selection": {
+        "start": {
+          "line": 41,
+          "character": 9
+        },
+        "end": {
+          "line": 41,
+          "character": 138
+        }
+      },
+      "description": "This is the command we run to start the app.\r\n\r\nIt's quite long. The important part is `swa`, which is the static web app CLI. It will run against a React app running on port 3000. It specifies the `data-api-location` which is the data api builder config file, which exists in `swa-db-connections`"
+    },
+    {
+      "file": "static-web-app/swa-db-connections/staticwebapp.database.config.json",
+      "selection": {
+        "start": {
+          "line": 23,
+          "character": 1
+        },
+        "end": {
+          "line": 25,
+          "character": 8
+        }
+      },
+      "description": "This is the DAB config again. Here we see that authentication is setup with StaticWebApps, which is EasyAuth under the hood"
+    },
+    {
+      "file": "static-web-app/swa-db-connections/staticwebapp.database.config.json",
+      "selection": {
+        "start": {
+          "line": 48,
+          "character": 5
+        },
+        "end": {
+          "line": 60,
+          "character": 6
+        }
+      },
+      "description": "Finally, an example of the permissions. An `admin` has full CRUD permissions on the `Book` resource, whilst anonymous users can only read!\r\n\r\nAn easy way to implement security!"
+    }
+  ]
+}
