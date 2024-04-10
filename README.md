@@ -11,7 +11,7 @@
     # development/production
     environment=development
     ```
-2. Run SQL Server by running `docker-compose up -d` in `data-api-builder`.
+2. Run SQL Server by running `docker compose up -d` in `data-api-builder`.
 3. Import the `.bacpac` using SQL Server Management Studio (or another tool).
 4. Run `dotnet tool restore` to install the DAB CLI
 5. Run `dab start` in `data-api-builder` to start the API.
