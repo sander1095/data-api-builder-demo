@@ -35,15 +35,16 @@ CREATE TABLE [dbo].[books](
 GO
 SET IDENTITY_INSERT [dbo].[authors] ON 
 
-INSERT [dbo].[authors] ([id], [name], [birthdate], [bio], [imageurl]) VALUES (1, N'Lewis Carroll', CAST(N'1832-01-27' AS Date), N'Lewis Carroll was an English author, poet, and mathematician known for his word play, logic, and fantasy, particularly in his works ''Alice''s Adventures in Wonderland'' and ''Through the Looking-Glass'', as well as his poems ''Jabberwocky'' and ''The Hunting of the Snark'', which are classified as literary nonsense.', N'https://upload.wikimedia.org/wikipedia/commons/f/fb/LewisCarrollSelfPhoto.jpg')
-INSERT [dbo].[authors] ([id], [name], [birthdate], [bio], [imageurl]) VALUES (2, N'Antoine de Saint-Exupéry', CAST(N'1900-06-29' AS Date), N'Antoine de Saint-Exupéry was a French writer, poet, aristocrat, journalist, and aviator known for his novella "The Little Prince" and his aviation writings "Wind, Sand and Stars" and "Night Flight", who received several French literary awards and the US National Book Award.', N'https://upload.wikimedia.org/wikipedia/commons/7/7f/11exupery-inline1-500.jpg')
+INSERT [dbo].[authors] ([id], [name], [birthdate], [bio], [imageurl]) VALUES (1, N'Brandon Sanderson', CAST(N'1975-12-19' AS Date), N'Brandon Winn Sanderson is an American author of high fantasy and science fiction. He is best known for the Cosmere fictional universe, in which most of his fantasy novels, most notably the Mistborn series and The Stormlight Archive, are set.', N'https://upload.wikimedia.org/wikipedia/commons/e/ef/Brandon_Sanderson_-_Lucca_Comics_%26_Games_2016.jpg')
+INSERT [dbo].[authors] ([id], [name], [birthdate], [bio], [imageurl]) VALUES (2, N'Pierce Brown', CAST(N'1988-01-28' AS Date), N'Pierce Brown is an American science fiction author who writes the Red Rising series, consisting of Red Rising, Golden Son, Morning Star, Iron Gold, Dark Age, and Light Bringer.', N'https://upload.wikimedia.org/wikipedia/commons/3/32/Pierce_Brown_by_Gage_Skidmore.jpg')
+INSERT [dbo].[authors] ([id], [name], [birthdate], [bio], [imageurl]) VALUES (3, N'Jon Skeet', CAST(N'1974-12-06' AS Date), N'Jon Skeet is a senior software engineer at Google. He studied mathematics and computer science at Cambridge, is a recognized authority in Java and C#, and maintains the position of top contributor to Stack Overflow.', N'https://it-ebooks.info/images/ebooks/5/csharp_in_depth_4th_edition.jpg')
 SET IDENTITY_INSERT [dbo].[authors] OFF
 GO
 SET IDENTITY_INSERT [dbo].[books] ON 
 
-INSERT [dbo].[books] ([id], [title], [authorId], [genre], [publicationdate], [imageurl]) VALUES (1, N'Alice''s Adventures in Wonderland', 1, N'Fantasy', NULL, N'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Alice%27s_Adventures_in_Wonderland_cover_%281865%29.jpg/220px-Alice%27s_Adventures_in_Wonderland_cover_%281865%29.jpg')
-INSERT [dbo].[books] ([id], [title], [authorId], [genre], [publicationdate], [imageurl]) VALUES (2, N'Le Petit Prince', 2, NULL, NULL, N'https://upload.wikimedia.org/wikipedia/en/thumb/0/05/Littleprince.JPG/220px-Littleprince.JPG')
-INSERT [dbo].[books] ([id], [title], [authorId], [genre], [publicationdate], [imageurl]) VALUES (11, N'Through the Looking-Glass', 1, N'Fantasy', NULL, N'https://upload.wikimedia.org/wikipedia/commons/6/6c/Through_the_looking_glass.jpg')
+INSERT [dbo].[books] ([id], [title], [authorId], [genre], [publicationdate], [imageurl]) VALUES (1, N'The Way of Kings', 1, N'Fantasy', CAST(N'2010-08-31' AS Date), N'https://upload.wikimedia.org/wikipedia/en/8/8b/TheWayOfKings.png')
+INSERT [dbo].[books] ([id], [title], [authorId], [genre], [publicationdate], [imageurl]) VALUES (2, N'Red Rising', 2, N'Science Fiction', CAST(N'2014-01-28' AS Date), N'https://upload.wikimedia.org/wikipedia/en/9/9b/Red_Rising_%282014%29.jpg')
+INSERT [dbo].[books] ([id], [title], [authorId], [genre], [publicationdate], [imageurl]) VALUES (3, N'C# in Depth', 3, N'Technology', CAST(N'2019-03-01' AS Date), N'https://images.manning.com/360/480/resize/book/9/319e4bc-7503-43cd-a4a2-f53fa410ebc0/Skeet-4ED-HI.png')
 SET IDENTITY_INSERT [dbo].[books] OFF
 GO
 ALTER TABLE [dbo].[books]  WITH CHECK ADD  CONSTRAINT [FK_dbo.books_authors] FOREIGN KEY([authorId])
