@@ -6,7 +6,7 @@
 1. Set up an `.env` file in `data-api-builder`:
 
     ```
-    MSSQL="Server=localhost,1433;Database=LibraryDB;User Id=sa;Password=YourStrong@Passw0rd;trustServerCertificate=true"
+    MSSQL="Server=localhost,1433;Database=database;User Id=sa;Password=YourStrong@Passw0rd;trustServerCertificate=true"
 
     # development/production
     environment=development
