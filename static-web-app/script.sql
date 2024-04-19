@@ -44,7 +44,7 @@ SET IDENTITY_INSERT [dbo].[books] ON
 
 INSERT [dbo].[books] ([id], [title], [authorId], [genre], [publicationdate], [imageurl]) VALUES (1, N'The Way of Kings', 1, N'Fantasy', CAST(N'2010-08-31' AS Date), N'https://upload.wikimedia.org/wikipedia/en/8/8b/TheWayOfKings.png')
 INSERT [dbo].[books] ([id], [title], [authorId], [genre], [publicationdate], [imageurl]) VALUES (2, N'Red Rising', 2, N'Science Fiction', CAST(N'2014-01-28' AS Date), N'https://upload.wikimedia.org/wikipedia/en/9/9b/Red_Rising_%282014%29.jpg')
-INSERT [dbo].[books] ([id], [title], [authorId], [genre], [publicationdate], [imageurl]) VALUES (3, N'C# in Depth', 3, N'Technology', CAST(N'2019-03-01' AS Date), N'https://images.manning.com/360/480/resize/book/9/319e4bc-7503-43cd-a4a2-f53fa410ebc0/Skeet-4ED-HI.png')
+INSERT [dbo].[books] ([id], [title], [authorId], [genre], [publicationdate], [imageurl]) VALUES (3, N'C# in Depth', 3, N'Technology', CAST(N'2019-03-01' AS Date), N'https://i.pinimg.com/736x/ea/ba/ce/eabacee45f65cd08801c135756314cd5.jpg')
 SET IDENTITY_INSERT [dbo].[books] OFF
 GO
 ALTER TABLE [dbo].[books]  WITH CHECK ADD  CONSTRAINT [FK_dbo.books_authors] FOREIGN KEY([authorId])

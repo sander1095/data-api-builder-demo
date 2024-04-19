@@ -68,7 +68,8 @@
     DATABASE_CONNECTION_STRING="Server=tcp:sql-data-api-builder-demo.database.windows.net,1433;Initial Catalog=db-data-api-builder-demo;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;Authentication='Active Directory Interactive'"
     ```
 2. Ensure the other demo's process has stopped before continuing.
-3. Run `npm i && npx swa start http://localhost:3000 --run "cd library-demo && npm i && npm start" --data-api-location swa-db-connections` in `static-web-app`.
+3. Ensure that the database has whitelisted the IP address.
+4. Run `npm i && npx swa start http://localhost:3000 --run "cd library-demo && npm i && npm start" --data-api-location swa-db-connections` in `static-web-app`.
 
 ### Demo content
 1. Open the localhost version of the app and talk about it being a simple UI for another library app, built with React and running with the SWA cli.
