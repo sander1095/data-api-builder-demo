@@ -44,9 +44,9 @@
         }
       }
   
-      # Uncomment and execute this after executing the previous mutation
+      ## Uncomment and execute this after executing the previous mutation
       # mutation {
-      #     createBookAuthor(item: { book_id: 1000002, author_id: 1000001, author_type_id: 2000  }) { 
+      #     createBookAuthor(item: { book_id: 1000002, author_id: 1000001, author_type_id: 1  }) { 
       #     book_id,
       #     author_id 
       #   }
