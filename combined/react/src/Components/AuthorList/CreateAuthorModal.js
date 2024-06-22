@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useMutation, gql } from '@apollo/client';
 import { Button, Modal, Form } from 'react-bootstrap';
 import './AuthorList.css';
+import { toast } from 'react-toastify';
 
 const CREATE_AUTHOR = gql`
     mutation CreateAuthor($item: CreateAuthorInput!) {
@@ -15,7 +16,7 @@ const CREATE_AUTHOR = gql`
     }
 `;
 
-function CreateAuthorModal({ showModal, setShowModal, refetch }) {
+function CreateAuthorModal({ showModal, setShowModal, refetch, role }) {
     const [name, setName] = useState('');
     const [birthdate, setBirthdate] = useState('');
     const [bio, setBio] = useState('');
@@ -23,8 +24,13 @@ function CreateAuthorModal({ showModal, setShowModal, refetch }) {
 
     const [createAuthor] = useMutation(CREATE_AUTHOR, {
         onCompleted() {
+            toast.success(`Author created`);
             setShowModal(false);
             refetch();
+        },
+        onError(error) {
+            toast.error(`Creating author failed: ${error.message}`);
+            throw error;
         }
     });
 

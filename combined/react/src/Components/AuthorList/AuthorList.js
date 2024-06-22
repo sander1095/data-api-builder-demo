@@ -6,6 +6,7 @@ import './AuthorList.css';
 
 import CreateAuthorModal from './CreateAuthorModal';
 import AuthorDetailsModal from './AuthorDetailsModal';
+import { toast } from 'react-toastify';
 
 const GET_AUTHORS = gql`
     query {
@@ -37,10 +38,12 @@ function AuthorList({role}) {
     const { loading, getError, data, refetch } = useQuery(GET_AUTHORS, {
         baseUrl: 'https://localhost:5001/graphql'
     });
+
     const [deleteAuthor] = useMutation(DELETE_AUTHOR, {
-        onCompleted: () => refetch(),
-        headers: {
-            'X-MS-API-ROLE' : role
+        onCompleted: () => { toast.success('Author has been deleted'); refetch(); },
+        onError: (error) => { 
+            toast.error(`Deleting author failed: ${error.message}`);
+            throw error;
         }
     });
 

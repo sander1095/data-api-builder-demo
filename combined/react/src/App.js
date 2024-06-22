@@ -10,16 +10,20 @@ import 'react-toastify/dist/ReactToastify.css';
 import BookList from './Components/BookList/BookList';
 import AuthorList from './Components/AuthorList/AuthorList';
 
+function App() {
+
+  const [role, setRole] = useState('anonymous');
+
+  
 const client = new ApolloClient({
   uri: 'https://localhost:5001/graphql',
+  headers: {
+    'X-MS-API-ROLE': role
+  },
   cache: new InMemoryCache({
     addTypename: false
   })
 });
-
-function App() {
-
-  const [role, setRole] = useState('anonymous');
 
   return (
     <ApolloProvider client={client}>
