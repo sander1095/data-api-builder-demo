@@ -3,7 +3,7 @@ import { Card, Button, } from 'react-bootstrap';
 import './BookList.css';
 import CreateBookModal from './CreateBookModal';
 
-const BookList = ({ isLoggedIn }) => {
+const BookList = ({ role }) => {
     const [books, setBooks] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
@@ -26,11 +26,11 @@ const BookList = ({ isLoggedIn }) => {
 
     const deleteBook = async (id) => {
         try {
-            const response = await fetch(`https://localhost:5001/Book/id/${id}`, {
+            const response = await fetch(`https://localhost:5001/api/Book/id/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
-                    'X-MS-API-ROLE' : isLoggedIn ? 'authenticated' : 'anonymous',
+                    'X-MS-API-ROLE' : role
                 }
             });
             if (!response.ok) {
@@ -61,7 +61,7 @@ const BookList = ({ isLoggedIn }) => {
                         Create
                     </Button>
                 </div>
-                <CreateBookModal showModal={showModal} setShowModal={setShowModal} refetch={fetchData} isLoggedIn={isLoggedIn}  />
+                <CreateBookModal showModal={showModal} setShowModal={setShowModal} refetch={fetchData} role={role}  />
             </div>
             <div className='book-list'>
                 {books.map(book =>

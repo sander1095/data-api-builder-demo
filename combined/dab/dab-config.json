@@ -58,6 +58,10 @@
       "permissions": [
         {
           "actions": ["*"],
+          "role": "admin"
+        },
+        {
+          "actions": ["create", "update", "read"],
           "role": "authenticated"
         },
         {

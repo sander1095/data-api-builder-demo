@@ -16,7 +16,7 @@ const client = new ApolloClient({
 
 function App() {
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [role, setRole] = useState('anonymous');
 
   return (
     <ApolloProvider client={client}>
@@ -25,21 +25,25 @@ function App() {
           <div className="maxWidth1200Centered" style={{ display: 'flex', padding: '1rem', justifyContent: 'space-between'}}>
             <Navbar.Brand>Library Demo</Navbar.Brand>
             <Nav className="ml-auto">
-              { isLoggedIn ?
-                  <Button variant="light" onClick={(e) => { e.preventDefault(); setIsLoggedIn(false); }}>
-                    Logout
-                  </Button>
-                :
-                <Button variant="light" onClick={(e) => { e.preventDefault(); setIsLoggedIn(true); }}>
-                    Login
-                  </Button>
-              }
+            {role === 'anonymous' ?
+              <Button variant="light" onClick={() => setRole('authenticated')}>
+                Log in
+              </Button>
+            : role === 'authenticated' ?
+              <Button variant="light" onClick={() => setRole('admin')}>
+                Log in as administrator
+              </Button>
+            :
+              <Button variant="light" onClick={() => setRole('anonymous')}>
+                Log out
+              </Button>
+            }
             </Nav>
           </div>
         </Navbar>
 
         <div className="maxWidth1200Centered">
-          <BookList IsLoggedIn={isLoggedIn} />
+          <BookList role={role} />
 
           {/* <AuthorList/> */}
         </div>

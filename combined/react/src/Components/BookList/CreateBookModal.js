@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
 import './BookList.css';
 
-function CreateBookModal({ showModal, setShowModal, refetch, isLoggedIn }) {
+function CreateBookModal({ showModal, setShowModal, refetch, role }) {
     const [title, setTitle] = useState('');
     const [authorId, setAuthorId] = useState('');
     const [genre, setGenre] = useState('');
@@ -15,7 +15,7 @@ function CreateBookModal({ showModal, setShowModal, refetch, isLoggedIn }) {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'X-MS-API-ROLE' : isLoggedIn ? 'authenticated' : 'anonymous',
+                    'X-MS-API-ROLE' : role
                 },
                 body: JSON.stringify({
                     title,

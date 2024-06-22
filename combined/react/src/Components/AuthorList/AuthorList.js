@@ -29,18 +29,18 @@ const DELETE_AUTHOR = gql`
     }
 `;
 
-function AuthorList() {
+function AuthorList({role}) {
     const [showModal, setShowModal] = useState(false);
     const [showDetailsModal, setShowDetailsModal] = useState(false);
     const [selectedAuthorId, setSelectedAuthorId] = useState(0);
 
     const { loading, getError, data, refetch } = useQuery(GET_AUTHORS, {
-        baseUrl: '/data-api/graphql'
+        baseUrl: 'https://localhost:5001/graphql'
     });
     const [deleteAuthor] = useMutation(DELETE_AUTHOR, {
         onCompleted: () => refetch(),
         headers: {
-            'X-MS-API-ROLE' : 'admin'
+            'X-MS-API-ROLE' : role
         }
     });
 
