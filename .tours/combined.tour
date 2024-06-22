@@ -1,0 +1,118 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "Combined",
+  "steps": [
+    {
+      "file": "combined/dab/dab-config.json",
+      "selection": {
+        "start": {
+          "line": 2,
+          "character": 2
+        },
+        "end": {
+          "line": 2,
+          "character": 105
+        }
+      },
+      "description": "The Schema helps with Intellisense and validation"
+    },
+    {
+      "file": "combined/dab/dab-config.json",
+      "selection": {
+        "start": {
+          "line": 3,
+          "character": 2
+        },
+        "end": {
+          "line": 9,
+          "character": 5
+        }
+      },
+      "description": "We are using Microsoft SQL Server locally with a connectionstring set in env variables (in this case, the `.env` file)"
+    },
+    {
+      "file": "combined/dab/dab-config.json",
+      "selection": {
+        "start": {
+          "line": 11,
+          "character": 1
+        },
+        "end": {
+          "line": 14,
+          "character": 7
+        }
+      },
+      "description": "In-memory caching is enabled for 10 seconds"
+    },
+    {
+      "file": "combined/dab/dab-config.json",
+      "selection": {
+        "start": {
+          "line": 15,
+          "character": 2
+        },
+        "end": {
+          "line": 24,
+          "character": 7
+        }
+      },
+      "description": "These are the global REST and GraphQL options, which are both enabled"
+    },
+    {
+      "file": "combined/dab/dab-config.json",
+      "selection": {
+        "start": {
+          "line": 25,
+          "character": 5
+        },
+        "end": {
+          "line": 34,
+          "character": 6
+        }
+      },
+      "description": "Here we configure the host.  Pay special attention to the `authentication provider`, which is currently set to `Simulator` which means all requests will be treated as `authenticated` by default, and the `X-MS-API-ROLE` header will decide how the request will be evaluated by DAB, which is quite useful!"
+    },
+    {
+      "file": "combined/dab/dab-config.json",
+      "selection": {
+        "start": {
+          "line": 37,
+          "character": 5
+        },
+        "end": {
+          "line": 52,
+          "character": 9
+        }
+      },
+      "description": "The author entity is mapped from `dbo.authors` and has permissions set up as follows:\r\n\r\n- Admin can do anything\r\n- Authenticated can create, update and read\r\n- Anonymous can read"
+    },
+    {
+      "file": "combined/dab/dab-config.json",
+      "selection": {
+        "start": {
+          "line": 53,
+          "character": 5
+        },
+        "end": {
+          "line": 58,
+          "character": 8
+        }
+      },
+      "description": "An author has a relationship with `book`, which is needed to retrieve an author and all their books.\r\n\r\nWe do not need to specify table columns to define the relationship because it is implicitly done thanks to `AuthorId` "
+    },
+    {
+      "file": "combined/dab/dab-config.json",
+      "selection": {
+        "start": {
+          "line": 60,
+          "character": 4
+        },
+        "end": {
+          "line": 75,
+          "character": 8
+        }
+      },
+      "description": "Finally, there's the `book` entity which is mapped from `dbo.books`. The permissions are the same as the `Author` entity"
+    }
+  ]
+}

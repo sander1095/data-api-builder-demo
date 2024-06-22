@@ -1,5 +1,45 @@
 # Demo
 
+## Combined
+This demo combines both aspects from `data-api-builder` and `static-web-app` into one for a shorter demo.
+
+### Setup
+1. Set up an `.env` file in `data-api-builder`:
+
+    ```
+    MSSQL="Server=localhost,1433;Database=database-combined;User Id=sa;Password=YourStrong@Passw0rd;trustServerCertificate=true"
+
+    # development/production
+    environment=development
+    ```
+2. Run SQL Server by running `docker compose up -d` in `combined/dab`.
+3. Create a database called `database-combined` and run the `script.sql` script to set up data.
+4. Run `dotnet tool restore` to install the DAB CLI.
+   1. If this doesn't work well, try using `dotnet tool install Microsoft.DataApiBuilder -g` instead.
+5. Run `dab start` in `combined/dab` to start the API.
+6. **In another terminal, execute the following steps:**
+7. Install the React project dependencies by running `npm i` in `combined/react`.
+8. Run `npm start` in `combined/react` to start the React app.
+
+### Demo content
+1. Showcase the front-end and talk about having a React library application with books and authors, with DAB as the back-end and SQL Server as the database in Docker.
+2. Talk about the roles and permissions and the log-in button switching roles which are set in the header requests.
+3. Talk about DAB using the `Simulator` authentication provider so we can easily test roles in development. We'll showcase this later and talk more about production grade authentication in the presentation as well.
+4. First, show the request and response that's done to get the books and authors (REST and GraphQL)
+5. Try to delete a book and author when logged out and show the 403 error. Show the auth header in the request.
+6. Log in as admin and delete a book and author. Show the auth header in the request, now it works.
+7. Create a book called `C# in Depth` by author `3`, category `Technology` and imageUrl `https://i.pinimg.com/736x/ea/ba/ce/eabacee45f65cd08801c135756314cd5.jpg` to show how that works.
+8. Finally, look at the book details of the 4th author. Showcase the GraphQL query that retrieves the author + books.
+9. Summarize that all of this API functionality required **0 code**, it was all done in the DAB configuration file, which we'll look at next.
+10. After this, go through the DAB Urls to showcase the Swagger, GaphQL and OpenAPI page
+11. Then showcase the code tour.
+
+### Links
+1. Open `http://localhost:3000/` for the React app.
+2. Open `https://localhost:5001/swagger` to see the API documentation.
+3. Open `https://localhost:5001/api/openapi` to see OpenAPI definition.
+4. Open `https://localhost:5001/graphql` to see the GraphQL playground.
+
 ## data-api-builder
 
 ### Setup
