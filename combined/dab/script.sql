@@ -51,7 +51,7 @@ END
 IF NOT EXISTS (SELECT 1 FROM [dbo].[authors] WHERE [id] = 3)
 BEGIN
     INSERT [dbo].[authors] ([id], [name], [birthdate], [bio], [imageurl]) 
-    VALUES (3, N'Jon Skeet', CAST(N'1974-12-06' AS Date), N'Jon Skeet is a senior software engineer at Google. He studied mathematics and computer science at Cambridge, is a recognized authority in Java and C#, and maintains the position of top contributor to Stack Overflow.', N'https://it-ebooks.info/images/ebooks/5/csharp_in_depth_4th_edition.jpg')
+    VALUES (3, N'Jon Skeet', CAST(N'1974-12-06' AS Date), N'Jon Skeet is a senior software engineer at Google. He studied mathematics and computer science at Cambridge, is a recognized authority in Java and C#, and maintains the position of top contributor to Stack Overflow.', N'https://buildingbruges.be/wp-content/uploads/2020/05/Cropped-hi-res-730x1024.jpg')
 END
 
 SET IDENTITY_INSERT [dbo].[authors] OFF

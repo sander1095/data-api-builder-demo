@@ -51,7 +51,7 @@ function AuthorList({role}) {
     return (
         <div className='author-page'>
             <div style={{ textAlign: 'left', margin: '1rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <h1>Authors</h1>
+                <h1>Authors (GraphQL)</h1>
                 <div>
                     <Button variant="primary" onClick={() => setShowModal(true)}>
                         Create
@@ -60,10 +60,10 @@ function AuthorList({role}) {
             </div>
             <CreateAuthorModal showModal={showModal} setShowModal={setShowModal} refetch={refetch} />
             <div className="author-list">
-                {data.authors.items.map(author =>
+                {data?.authors.items.map(author =>
                     <Card key={author.id} className="author-card" style={{ width: '18rem', margin: '1rem' }}>
                         <div style={{ backgroundColor: '#373940' }}>
-                            <Card.Img variant="top" src={author.imageurl} style={{ height: '14rem', width: 'fit-content' }} />
+                            <Card.Img variant="top" src={author.imageurl} style={{ height: '14rem', width: 'auto' }} />
                         </div>
                         <Card.Body>
                             <Card.Title>{author.name}</Card.Title>

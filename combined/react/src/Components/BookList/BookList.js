@@ -60,7 +60,7 @@ const BookList = ({ role }) => {
     return (
         <div className='book-page'>
             <div style={{ textAlign: 'left', margin: '1rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <h1>Books</h1>
+                <h1>Books (REST)</h1>
                 <div>
                     <Button variant="primary" onClick={() => setShowModal(true)}>
                         Create
@@ -72,7 +72,7 @@ const BookList = ({ role }) => {
                 {books.map(book =>
                     <Card key={book.id} style={{ width: '18rem', margin: '1rem' }}>
                         <div style={{ backgroundColor: '#373940' }}>
-                            <Card.Img variant="top" src={book.imageurl} style={{ height: '14rem', width: 'fit-content' }} />
+                            <Card.Img variant="top" src={book.imageurl} style={{ height: '14rem', width: 'auto' }} />
                         </div>
                         <Card.Body>
                             <Card.Title>{book.title}</Card.Title>

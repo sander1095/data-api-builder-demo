@@ -8,9 +8,10 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import BookList from './Components/BookList/BookList';
+import AuthorList from './Components/AuthorList/AuthorList';
 
 const client = new ApolloClient({
-  uri: '/data-api/graphql',
+  uri: 'https://localhost:5001/graphql',
   cache: new InMemoryCache({
     addTypename: false
   })
@@ -47,7 +48,7 @@ function App() {
         <div className="maxWidth1200Centered">
           <BookList role={role} />
 
-          {/* <AuthorList/> */}
+          <AuthorList role={role} />
         </div>
       </div>
       <ToastContainer/>
