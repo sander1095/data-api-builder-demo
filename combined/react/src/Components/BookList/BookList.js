@@ -3,7 +3,7 @@ import { Card, Button, } from 'react-bootstrap';
 import './BookList.css';
 import CreateBookModal from './CreateBookModal';
 
-const BookList = () => {
+const BookList = ({ isLoggedIn }) => {
     const [books, setBooks] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
@@ -30,7 +30,7 @@ const BookList = () => {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
-                    'X-MS-API-ROLE' : 'admin',
+                    'X-MS-API-ROLE' : isLoggedIn ? 'authenticated' : null,
                 }
             });
             if (!response.ok) {
@@ -61,7 +61,7 @@ const BookList = () => {
                         Create
                     </Button>
                 </div>
-                <CreateBookModal showModal={showModal} setShowModal={setShowModal} refetch={fetchData} />
+                <CreateBookModal showModal={showModal} setShowModal={setShowModal} refetch={fetchData} isLoggedIn={isLoggedIn}  />
             </div>
             <div className='book-list'>
                 {books.map(book =>

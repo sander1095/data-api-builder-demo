@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import { Navbar, Nav, Button } from 'react-bootstrap';
+import { useState } from 'react';
 
 import './App.css';
 
@@ -14,14 +15,8 @@ const client = new ApolloClient({
 });
 
 function App() {
-  //read token from cookie StaticWebAppsAuthCookie
-  let token;
 
-  try{
-    token = document.cookie.split(';').find(c => c.trim().startsWith('StaticWebAppsAuthCookie=')).split('=')[1];
-  } catch (e) {
-    token = null;
-  }
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
     <ApolloProvider client={client}>
@@ -30,13 +25,13 @@ function App() {
           <div className="maxWidth1200Centered" style={{ display: 'flex', padding: '1rem', justifyContent: 'space-between'}}>
             <Navbar.Brand>Library Demo</Navbar.Brand>
             <Nav className="ml-auto">
-              { token ?
-                  <Button variant="light">
-                    <a href='/.auth/logout'>Logout</a>
+              { isLoggedIn ?
+                  <Button variant="light" onClick={(e) => { e.preventDefault(); setIsLoggedIn(false); }}>
+                    Logout
                   </Button>
                 :
-                  <Button variant="light">
-                    <a href='/.auth/login/github'>Login</a>
+                <Button variant="light" onClick={(e) => { e.preventDefault(); setIsLoggedIn(true); }}>
+                    Login
                   </Button>
               }
             </Nav>
@@ -44,7 +39,8 @@ function App() {
         </Navbar>
 
         <div className="maxWidth1200Centered">
-          <BookList/>
+          <BookList IsLoggedIn={isLoggedIn} />
+
           {/* <AuthorList/> */}
         </div>
       </div>
