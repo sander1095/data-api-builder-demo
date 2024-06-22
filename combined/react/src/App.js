@@ -31,9 +31,9 @@ function App() {
           <div className="maxWidth1200Centered" style={{ display: 'flex', padding: '1rem', justifyContent: 'space-between', alignItems: 'center'}}>
             <Navbar.Brand>Library Demo</Navbar.Brand>
             <div className="alert alert-primary d-inline-block mx-auto mb-0 text-start" role="alert" style={{ width: 'auto' }}>
-              <strong>Anonymous</strong> users can <strong>read</strong><br/>
-              <strong>Authenticated</strong> users can also <strong>create</strong> and <strong>update</strong> data <br/>
-              <strong>Admins</strong> can also <strong>delete</strong> data <br/>
+              <strong style={{ color: role === 'anonymous' ? 'green' : 'inherit' }}>Anonymous</strong> users can <strong>read</strong><br/>
+              <strong style={{ color: role === 'authenticated' ? 'green' : 'inherit' }}>Authenticated</strong> users can also <strong>create</strong> and <strong>update</strong> data <br/>
+              <strong style={{ color: role === 'admin' ? 'green' : 'inherit' }}>Admins</strong> can also <strong>delete</strong> data <br/>
             </div>
             <Nav className="ml-auto">
               {role === 'anonymous' ?
@@ -53,7 +53,7 @@ function App() {
           </div>
         </Navbar>
 
-        <div className="maxWidth1200Centered">
+        <div className="maxWidth1400Centered">
           <BookList role={role} />
           <AuthorList role={role} />
         </div>

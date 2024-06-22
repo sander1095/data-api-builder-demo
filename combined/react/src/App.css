@@ -4,6 +4,13 @@
   margin: auto;
 }
 
+.maxWidth1400Centered {
+  max-width: 1400px;
+  width: 100%;
+  margin: auto;
+}
+
+
 .App {
   text-align: center;
 }
