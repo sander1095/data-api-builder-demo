@@ -4,6 +4,8 @@ import { Navbar, Nav, Button } from 'react-bootstrap';
 import { useState } from 'react';
 
 import './App.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import BookList from './Components/BookList/BookList';
 
@@ -48,6 +50,7 @@ function App() {
           {/* <AuthorList/> */}
         </div>
       </div>
+      <ToastContainer/>
     </ApolloProvider>
   );
 }

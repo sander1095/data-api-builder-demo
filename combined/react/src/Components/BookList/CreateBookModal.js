@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
 import './BookList.css';
+import { toast } from 'react-toastify';
 
 function CreateBookModal({ showModal, setShowModal, refetch, role }) {
     const [title, setTitle] = useState('');
@@ -27,8 +28,10 @@ function CreateBookModal({ showModal, setShowModal, refetch, role }) {
             });
             const data = await response.json();
             if (response.ok) {
+                toast.success(`${response.status} - Book created`);
                 setShowModal(false);
             } else {
+                toast.error(`${response.status} - Creating book failed`);
                 throw new Error(data.message);
             }
         } catch (error) {

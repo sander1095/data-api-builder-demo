@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Card, Button, } from 'react-bootstrap';
 import './BookList.css';
 import CreateBookModal from './CreateBookModal';
+import { toast } from 'react-toastify';
 
 const BookList = ({ role }) => {
     const [books, setBooks] = useState([]);
@@ -14,6 +15,7 @@ const BookList = ({ role }) => {
         try {
             const response = await fetch('https://localhost:5001/api/Book');
             if (!response.ok) {
+                toast.error(`${response.status} - Retrieving books failed`);
                 throw new Error(response.statusText);
             }
             const data = await response.json();
@@ -34,7 +36,10 @@ const BookList = ({ role }) => {
                 }
             });
             if (!response.ok) {
+                toast.error(`${response.status} - Deleting book '${id}' failed`);
                 throw new Error(response.statusText);
+            } else {
+                toast.success(`${response.status} - Book '${id}' deleted`);
             }
             await fetchData(true);
         } catch (error) { }
