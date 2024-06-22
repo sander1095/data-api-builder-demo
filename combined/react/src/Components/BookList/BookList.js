@@ -13,7 +13,7 @@ const BookList = ({ role }) => {
     const fetchData = async (disableLoadState) => {
         if(!disableLoadState) setIsLoading(true);
         try {
-            const response = await fetch('https://localhost:5001/api/Book');
+            const response = await fetch('https://localhost:5001/api/Book', { headers: { 'X-MS-API-ROLE': role } });
             if (!response.ok) {
                 toast.error(`${response.status} - Retrieving books failed`);
                 throw new Error(response.statusText);
