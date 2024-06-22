@@ -11,11 +11,11 @@ function CreateBookModal({ showModal, setShowModal, refetch, isLoggedIn }) {
 
     const createBookRequest = async () => {
         try {
-            const response = await fetch('/data-api/api/Book', {
+            const response = await fetch('https://localhost:5001/api/Book', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'X-MS-API-ROLE' : isLoggedIn ? 'authenticated' : null,
+                    'X-MS-API-ROLE' : isLoggedIn ? 'authenticated' : 'anonymous',
                 },
                 body: JSON.stringify({
                     title,

@@ -12,7 +12,7 @@ const BookList = ({ isLoggedIn }) => {
     const fetchData = async (disableLoadState) => {
         if(!disableLoadState) setIsLoading(true);
         try {
-            const response = await fetch('/data-api/api/Book');
+            const response = await fetch('https://localhost:5001/api/Book');
             if (!response.ok) {
                 throw new Error(response.statusText);
             }
@@ -26,11 +26,11 @@ const BookList = ({ isLoggedIn }) => {
 
     const deleteBook = async (id) => {
         try {
-            const response = await fetch(`/data-api/api/Book/id/${id}`, {
+            const response = await fetch(`https://localhost:5001/Book/id/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
-                    'X-MS-API-ROLE' : isLoggedIn ? 'authenticated' : null,
+                    'X-MS-API-ROLE' : isLoggedIn ? 'authenticated' : 'anonymous',
                 }
             });
             if (!response.ok) {
