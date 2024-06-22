@@ -54,6 +54,12 @@ BEGIN
     VALUES (3, N'Jon Skeet', CAST(N'1974-12-06' AS Date), N'Jon Skeet is a senior software engineer at Google. He studied mathematics and computer science at Cambridge, is a recognized authority in Java and C#, and maintains the position of top contributor to Stack Overflow.', N'https://buildingbruges.be/wp-content/uploads/2020/05/Cropped-hi-res-730x1024.jpg')
 END
 
+IF NOT EXISTS (SELECT 1 FROM [dbo].[authors] WHERE [id] = 4)
+BEGIN
+    INSERT [dbo].[authors] ([id], [name], [birthdate], [bio], [imageurl]) 
+    VALUES (4, N'Mark Russinovich', CAST(N'1966-12-22' AS Date), N'Mark Russinovich is the CTO of Microsoft Azure.', N'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Mark_Russinovich.jpg/440px-Mark_Russinovich.jpg')
+END
+
 SET IDENTITY_INSERT [dbo].[authors] OFF
 GO
 
@@ -75,7 +81,7 @@ END
 IF NOT EXISTS (SELECT 1 FROM [dbo].[books] WHERE [id] = 3)
 BEGIN
     INSERT [dbo].[books] ([id], [title], [authorId], [genre], [publicationdate], [imageurl]) 
-    VALUES (3, N'C# in Depth', 3, N'Technology', CAST(N'2019-03-01' AS Date), N'https://i.pinimg.com/736x/ea/ba/ce/eabacee45f65cd08801c135756314cd5.jpg')
+    VALUES (3, N'Pronouncing Azure Correctly: The Definitive Guide', 4, N'Technology', CAST(N'2024-01-01' AS Date), N'https://i.imgur.com/Gx9VJp2.png')
 END
 
 SET IDENTITY_INSERT [dbo].[books] OFF

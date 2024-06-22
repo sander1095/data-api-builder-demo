@@ -28,9 +28,11 @@ This demo combines both aspects from `data-api-builder` and `static-web-app` int
 4. First, show the request and response that's done to get the books and authors (REST and GraphQL)
 5. Try to delete a book and author when logged out and show the 403 error. Show the auth header in the request.
 6. Log in as admin and delete a book and author. Show the auth header in the request, now it works.
-7. Create a book called `TODO` by author `4` to show how that works.
-8. After this, go through the DAB Urls to showcase the Swagger, GaphQL and OpenAPI page
-9.  Then showcase the code tour.
+7. Create a book called `C# in Depth` by author `3`, category `Technology` and imageUrl `https://i.pinimg.com/736x/ea/ba/ce/eabacee45f65cd08801c135756314cd5.jpg` to show how that works.
+8. Finally, look at the book details of the 4th author. Showcase the GraphQL query that retrieves the author + books.
+9. Summarize that all of this API functionality required **0 code**, it was all done in the DAB configuration file, which we'll look at next.
+10. After this, go through the DAB Urls to showcase the Swagger, GaphQL and OpenAPI page
+11. Then showcase the code tour.
 
 ### Links
 1. Open `http://localhost:3000/` for the React app.
