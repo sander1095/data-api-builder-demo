@@ -50,6 +50,18 @@ const client = new ApolloClient({
         </Navbar>
 
         <div className="maxWidth1200Centered">
+          <div className="container">
+            <div className="row justify-content-center pt-3">
+              <div className="col-md-8 text-center">
+                <div className="alert alert-primary text-start d-inline-block mx-auto" role="alert" style={{ width: 'auto' }}>
+                  <strong>Anonymous</strong> users can <strong>read</strong><br/>
+                  <strong>Authenticated</strong> users can also <strong>create</strong> and <strong>update</strong> data <br/>
+                  <strong>Admins</strong> can also <strong>delete</strong> data <br/>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <BookList role={role} />
 
           <AuthorList role={role} />
