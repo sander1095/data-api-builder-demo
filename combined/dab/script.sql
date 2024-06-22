@@ -86,6 +86,7 @@ IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo
 BEGIN
     ALTER TABLE [dbo].[books]  WITH CHECK ADD  CONSTRAINT [FK_dbo.books_authors] FOREIGN KEY([authorId])
     REFERENCES [dbo].[authors] ([id])
+    ON DELETE CASCADE
 END
 GO
 
