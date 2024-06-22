@@ -33,10 +33,9 @@ function AuthorDetailsModal({ closeModal, authorId }) {
     useEffect(() => {
         if (data) {
           setName(data.author_by_pk.name);
-          setBirthdate(data.author_by_pk.birthdate);
+          setBirthdate(new Date(data.author_by_pk.birthdate).toISOString().split('T')[0]);
           setImageurl(data.author_by_pk.imageurl);
-            setBooks(data.author_by_pk.books.items);
-
+          setBooks(data.author_by_pk.books.items);
         }
     }, [data]);
 
