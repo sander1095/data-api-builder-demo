@@ -45,7 +45,7 @@ function CreateBookModal({ showModal, setShowModal, refetch }) {
     return (
         <Modal show={showModal} onHide={() => setShowModal(false)}>
             <Modal.Header closeButton>
-                <Modal.Title>Create Author</Modal.Title>
+                <Modal.Title>Create Book</Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <Form>

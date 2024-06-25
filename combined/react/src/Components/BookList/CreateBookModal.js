@@ -12,7 +12,7 @@ function CreateBookModal({ showModal, setShowModal, refetch, role }) {
 
     const createBookRequest = async () => {
         try {
-            const response = await fetch('https://localhost:5001/api/Book', {
+            const response = await fetch('http://localhost:5000/api/Book', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -48,7 +48,7 @@ function CreateBookModal({ showModal, setShowModal, refetch, role }) {
     return (
         <Modal show={showModal} onHide={() => setShowModal(false)}>
             <Modal.Header closeButton>
-                <Modal.Title>Create Author</Modal.Title>
+                <Modal.Title>Create Book</Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <Form>

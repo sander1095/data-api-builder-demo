@@ -36,7 +36,7 @@ function AuthorList({role}) {
     const [selectedAuthorId, setSelectedAuthorId] = useState(0);
 
     const { loading, getError, data, refetch } = useQuery(GET_AUTHORS, {
-        baseUrl: 'https://localhost:5001/graphql'
+        baseUrl: 'http://localhost:5000/graphql'
     });
 
     const [deleteAuthor] = useMutation(DELETE_AUTHOR, {

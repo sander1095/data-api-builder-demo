@@ -15,7 +15,7 @@ function App() {
   const [role, setRole] = useState('anonymous');
 
   const client = new ApolloClient({
-    uri: 'https://localhost:5001/graphql',
+    uri: 'http://localhost:5000/graphql',
     headers: {
       'X-MS-API-ROLE': role
     },

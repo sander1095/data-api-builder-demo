@@ -36,9 +36,9 @@ This demo combines both aspects from `data-api-builder` and `static-web-app` int
 
 ### Links
 1. Open `http://localhost:3000/` for the React app.
-2. Open `https://localhost:5001/swagger` to see the API documentation.
-3. Open `https://localhost:5001/api/openapi` to see OpenAPI definition.
-4. Open `https://localhost:5001/graphql` to see the GraphQL playground.
+2. Open `http://localhost:5000/swagger` to see the API documentation.
+3. Open `http://localhost:5000/api/openapi` to see OpenAPI definition.
+4. Open `http://localhost:5000/graphql` to see the GraphQL playground.
 
 ## data-api-builder
 

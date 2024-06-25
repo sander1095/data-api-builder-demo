@@ -13,7 +13,7 @@ const BookList = ({ role }) => {
     const fetchData = async (disableLoadState) => {
         if(!disableLoadState) setIsLoading(true);
         try {
-            const response = await fetch('https://localhost:5001/api/Book', { headers: { 'X-MS-API-ROLE': role } });
+            const response = await fetch('http://localhost:5000/api/Book', { headers: { 'X-MS-API-ROLE': role } });
             if (!response.ok) {
                 toast.error(`${response.status} - Retrieving books failed`);
                 throw new Error(response.statusText);
@@ -28,7 +28,7 @@ const BookList = ({ role }) => {
 
     const deleteBook = async (id) => {
         try {
-            const response = await fetch(`https://localhost:5001/api/Book/id/${id}`, {
+            const response = await fetch(`http://localhost:5000/api/Book/id/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
