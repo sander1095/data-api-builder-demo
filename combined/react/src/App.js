@@ -27,7 +27,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <div className="App">
-        <Navbar bg="dark" variant="dark" expand="lg">
+        <Navbar bg="dark" variant="dark" expand="lg" sticky='top'>
           <div className="maxWidth1200Centered" style={{ display: 'flex', padding: '1rem', justifyContent: 'space-between', alignItems: 'center'}}>
             <Navbar.Brand>Library Demo</Navbar.Brand>
             <div className="alert alert-primary d-inline-block mx-auto mb-0 text-start" role="alert" style={{ width: 'auto' }}>
