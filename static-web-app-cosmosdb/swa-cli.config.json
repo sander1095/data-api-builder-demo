@@ -1,0 +1,15 @@
+{
+  "$schema": "https://aka.ms/azure/static-web-apps-cli/schema",
+  "configurations": {
+    "cosmosdb-emulator": {
+      "appLocation": ".",
+      "outputLocation": "build",
+      "dataApiLocation": "swa-db-connections",
+      "appBuildCommand": "npm run build",
+      "run": "npm start",
+      "appDevserverUrl": "http://localhost:3000",
+      "appName": "swa-cosmosdb-emulator",
+      "resourceGroup": "rg-cosmosdb-temp"
+    }
+  }
+}

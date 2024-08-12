@@ -130,3 +130,37 @@ This demo combines both aspects from `data-api-builder` and `static-web-app` int
 3. Open `https://portal.azure.com/#@Sandertenbrinkexs4all.onmicrosoft.com/resource/subscriptions/65cbea20-04e6-49ae-869f-bcd6fb4d318f/resourceGroups/rg-data-api-builder-demo/providers/Microsoft.Web/staticSites/swa-data-api-builder-demo/databaseConnection` for the Static Web App resource.
 4. Open https://github.com/sander1095/data-api-builder-demo/pull/1 for the PR that creates a temporary environment for SWA.
 5. Open `https://witty-smoke-062083f03-1.westeurope.5.azurestaticapps.net/` for the PR environment (Not set up with DAB!)
+
+
+## static-web-app-cosmosdb
+This project lets you use an Azure Static Web Apps with `cosmosdb_nosql`.
+
+### Setup
+
+1. You can run `npm install` and `npm install -g @azure/static-web-apps-cli` to set up base packages.
+
+2. You'll also need to use the [Azure CosmosDb emulator](https://learn.microsoft.com/en-us/azure/cosmos-db/emulator).
+
+3. Create an `.env` file in `/static-web-app-cosmosdb` with the following contents:
+
+    ```
+    AZURE_SUBSCRIPTION_ID=YOUR_SUBSCRIPTION_ID_HERE
+    AZURE_TENANT_ID=YOUR_TENANT_ID_HERE
+    ```
+
+4. Then create an `.env` file in `static-web-app-cosmosdb/swa-db-connections` with the following contents:
+
+    ```
+    # The connection string for the CosmosDB emulator
+    DATABASE_CONNECTION_STRING="AccountEndpoint=https://localhost:8081;AccountKey=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==;"
+    ```
+
+5. You can use the `ms-azuretools.vscode-cosmosdb` extension to import `static-web-app-cosmosdb/swa-db-connections/authors.json` into a database called `bookshelf` with a container called `authors`.
+   
+6. Then run `swa start` to run the project. Go to `http://localhost:4280` to see the list of authors.
+
+7. Then deploy a real instance of CosmosDb and import the data again. You might need to enable system assigned identities.
+
+8. Then run `swa deploy --env Production` to deploy the project to Azure Static Web Apps. You will need to [set up the database connection in the Azure portal](https://learn.microsoft.com/en-us/azure/static-web-apps/database-azure-cosmos-db?tabs=bash) and possibly redeploy again.
+
+9.  Then go to the URL shown in the CLI to see the live version of the app, using Data API Builder with GraphQL to talk to cosmosdb!
