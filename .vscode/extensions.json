@@ -1,5 +1,6 @@
 {
     "recommendations": [
-        "vsls-contrib.codetour"
+        "vsls-contrib.codetour",
+        "ms-azuretools.vscode-cosmosdb"
     ]
 }
