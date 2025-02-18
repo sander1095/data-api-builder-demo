@@ -1,5 +1,5 @@
 {
-  "$schema": "https://dataapibuilder.azureedge.net/schemas/v0.5.0-beta/dab.draft.schema.json",
+  "$schema": "https://github.com/Azure/data-api-builder/releases/download/v1.3.19/dab.draft.schema.json",
   "data-source": {
     "database-type": "mssql",
     "options": {
